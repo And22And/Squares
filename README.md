@@ -1,0 +1,2 @@
+# Squares
+Simple test site
