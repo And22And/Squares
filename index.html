@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Squares</title>
+        <link rel="stylesheet" type="text/css" href="squares.css">
+        <script src="squares.js"></script>
+    </head>
+    <body>
+        <div id='squares'>
+            <table onmouseleave='outTable()'>
+                <tr>
+                    <td></td>
+                    <td><table>
+                        <tbody id='topButton'><tr><td onmouseover='buttonOver(this);' onmouseout='buttonOut(this)'></td></tr></tbody>
+                    </table></td>
+                    <td></td>
+                </tr>    
+                <tr>
+                    <td><table>
+                        <tbody id='leftButton'><tr><td onmouseover='buttonOver(this);' onmouseout='buttonOut(this)'></td></tr></tbody>
+                    </table></td>
+                    <td><table>
+                        <tbody id='squaresTable'>
+                            <tr onmouseover='overRow(this)'>
+                                <td onmouseover='overCell(this)'></td>
+                            </tr>
+                        </tbody>
+                    </table></td>
+                    <td><table>
+                        <tbody id='rightButton'><tr><td class='button' onclick='addColumn()' onmouseover='buttonOver(this);' onmouseout='buttonOut(this)'>+</td></tr></tbody>
+                    </table></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td ><table>
+                        <tbody id='bottomButton'><tr><td class='button' onclick='addRow()' onmouseover='buttonOver(this);' onmouseout='buttonOut(this)'>+</td></tr></tbody>
+                    </table></td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>

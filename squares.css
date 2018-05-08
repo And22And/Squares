@@ -1,0 +1,180 @@
+#squares table{
+    display:block;
+}
+
+#squares td{
+    margin:5px;
+}
+
+#leftButton, #bottomButton, #rightButton, #topButton{
+    display: block;
+    border: 2px solid transparent;
+    border-collapse: separate;
+    border-spacing: 2px;
+}
+
+#leftButton td, #bottomButton td, #rightButton td, #topButton td{
+    max-height:50px;
+    min-height:50px;
+    max-width:50px;
+    min-width:50px;
+    width:50px;
+    height:50px; 
+}
+
+#squaresTable{
+    display: block;
+    border: 2px solid #1E90FF;
+    border-collapse: separate;
+    border-spacing: 2px; 
+    cursor: url("BlackCursor.png"), auto; 
+}
+
+#squares #squaresTable td{
+    max-height:50px;
+    min-height:50px;
+    max-width:50px;
+    min-width:50px;
+    width:50px;
+    height:50px;
+    background: #6495ED;    
+}
+
+ #squares .button { 
+    cursor: url("HandTrans.png"), auto; 
+}
+
+@-webkit-keyframes addButtonHover {
+	from { background-color: #FFCC00; }
+	to { background-color: #FFCC33; }
+}
+@-moz-keyframes addButtonHover {
+	from { background-color: #FFCC00; }
+	to { background-color: #FFCC66; }
+}
+@-ms-keyframes addButtonHover {
+	from { background-color: #FFCC00; }
+	to { background-color: #FFCC66; }
+}
+@-o-keyframes addButtonHover {
+	from { background-color: #FFCC00; }
+	to { background-color: #FFCC66; }
+}
+@keyframes addButtonHover{
+	from { background-color: #FFCC00; }
+	to { background-color: #FFCC66; }
+}
+
+@-webkit-keyframes addButtonHoverOut {
+	from { background-color: #FFCC66; }
+	to { background-color: #FFCC00; }
+}
+@-moz-keyframes addButtonHoverOut {
+	from { background-color: #FFCC66; }
+	to { background-color: #FFCC00; }
+}
+@-ms-keyframes addButtonHoverOut {
+	from { background-color: #FFCC66; }
+	to { background-color: #FFCC00; }
+}
+@-o-keyframes addButtonHoverOut {
+	from { background-color: #FFCC66; }
+	to { background-color: #FFCC00; }
+}
+@keyframes addButtonHoverOut {
+	from { background-color: #FFCC66; }
+	to { background-color: #FFCC00; }
+}
+
+#rightButton .button, #bottomButton .button{
+    background: #FFCC00;
+    text-align: center;
+    color:white;
+}
+
+#squares .animatedAddOut{
+    -webkit-animation: addButtonHoverOut 2s 1 normal;
+	-moz-animation: addButtonHoverOut 2s 1 normal;
+	-ms-animation: addButtonHoverOut 2s 1 normal;
+	-o-animation: addButtonHoverOut 2s 1 normal;
+	animation: addButtonHoverOut 2s 1 normal;  
+    background: #FFCC00;  
+}
+
+#squares .animatedAddOn{
+    -webkit-animation: addButtonHover 2s 1 normal;
+	-moz-animation: addButtonHover 2s 1 normal;
+	-ms-animation: addButtonHover 2s 1 normal;
+	-o-animation: addButtonHover 2s 1 normal;
+	animation: addButtonHover 2s 1 normal;
+    background-color: #FFCC66;  
+}
+
+@-webkit-keyframes addButtonHover {
+	from { background-color: #800000; }
+	to { background-color: #CD5C5C; }
+}
+@-moz-keyframes removeButtonHover {
+	from { background-color: #800000; }
+	to { background-color: #CD5C5C; }
+}
+@-ms-keyframes removeButtonHover {
+	from { background-color: #800000; }
+	to { background-color: #CD5C5C; }
+}
+@-o-keyframes removeButtonHover {
+	from { background-color: #800000; }
+	to { background-color: #CD5C5C; }
+}
+
+@keyframes removeButtonHover{
+	from { background-color: #800000; }
+	to { background-color: #CD5C5C; }
+}
+
+@-webkit-keyframes removeButtonHoverOut {
+	from { background-color: #CD5C5C; }
+	to { background-color: #800000; }
+}
+@-moz-keyframes removeButtonHoverOut {
+	from { background-color: #CD5C5C; }
+	to { background-color: #800000; }
+}
+@-ms-keyframes removeButtonHoverOut {
+	from { background-color: #CD5C5C; }
+	to { background-color: #800000; }
+}
+@-o-keyframes removeButtonHoverOut {
+	from { background-color: #CD5C5C; }
+	to { background-color: #800000; }
+}
+@keyframes removeButtonHoverOut {
+	from { background-color: #CD5C5C; }
+	to { background-color: #800000; }
+}
+
+#leftButton .button, #topButton .button{
+    background: #800000;
+    text-align: center;
+    color:white;
+}
+
+#squares .animatedRemoveOut{
+    -webkit-animation: removeButtonHoverOut 2s 1 normal;
+	-moz-animation: removeButtonHoverOut 2s 1 normal;
+	-ms-animation: removeButtonHoverOut 2s 1 normal;
+	-o-animation: removeButtonHoverOut 2s 1 normal;
+	animation: removeButtonHoverOut 2s 1 normal;  
+    background: #800000;  
+}
+
+#squares .animatedRemoveOn{
+    -webkit-animation: removeButtonHover 2s 1 normal;
+	-moz-animation: removeButtonHover 2s 1 normal;
+	-ms-animation: removeButtonHover 2s 1 normal;
+	-o-animation: removeButtonHover 2s 1 normal;
+	animation: removeButtonHover 2s 1 normal;
+    background-color: #CD5C5C;  
+}
+
+
