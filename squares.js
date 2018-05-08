@@ -28,7 +28,7 @@ function removeRow(){
     if(numberOfRows == 2) {
         leftButton.children[currentButtonLeft].remove();
     } else {
-        leftButton.children[currentButtonLeft == 0 ? 1 : currentButtonLeft - 1].remove();
+        leftButton.children[currentButtonLeft == leftButton.children.length - 1 ? currentButtonLeft - 1 : currentButtonLeft + 1].remove();
     }
     document.getElementById("squaresTable").children[currentButtonLeft].remove();
     if(currentButtonLeft == leftButton.children.length) {
@@ -52,7 +52,7 @@ function removeColumn(){
     if(numberOfColumns == 2) {
         topButton.firstChild.children[currentButtonTop].remove();
     } else {
-        topButton.firstChild.children[currentButtonTop == 0 ? 1 : currentButtonTop - 1].remove()
+        topButton.firstChild.children[currentButtonTop == topButton.firstChild.children.length - 1 ? currentButtonTop - 1 : currentButtonTop + 1].remove()
     }
     var rows = Array.from(document.getElementById("squaresTable").children);
     rows.forEach(function(row) {
