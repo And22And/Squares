@@ -25,8 +25,15 @@ function addRow(){
 
 function removeRow(){
     rightButton.lastChild.remove();
-    leftButton.children[currentButtonLeft].remove();
+    if(numberOfRows == 2) {
+        leftButton.children[currentButtonLeft].remove();
+    } else {
+        leftButton.children[currentButtonLeft == 0 ? 1 : currentButtonLeft - 1].remove();
+    }
     document.getElementById("squaresTable").children[currentButtonLeft].remove();
+    if(currentButtonLeft == leftButton.children.length) {
+        currentButtonLeft--;
+    }
     numberOfRows--;
 }
 
@@ -35,18 +42,25 @@ function addColumn(){
     rows.forEach(function(row) {
         row.insertAdjacentHTML("beforeend", tdTemplate);
     }); 
-    topButton.children[0].insertAdjacentHTML("beforeend", tdRemoveTemplate);
     bottomButton.children[0].insertAdjacentHTML("beforeend", "<td></td>");
+    topButton.children[0].insertAdjacentHTML("beforeend", tdRemoveTemplate);
     numberOfColumns++;    
 }
 
 function removeColumn(){
-    topButton.firstChild.children[currentButtonTop].remove();
     bottomButton.firstChild.lastChild.remove();
+    if(numberOfColumns == 2) {
+        topButton.firstChild.children[currentButtonTop].remove();
+    } else {
+        topButton.firstChild.children[currentButtonTop == 0 ? 1 : currentButtonTop - 1].remove()
+    }
     var rows = Array.from(document.getElementById("squaresTable").children);
     rows.forEach(function(row) {
         row.children[currentButtonTop].remove();
-    }); 
+    });
+    if(currentButtonTop == topButton.firstChild.children.length) {
+        currentButtonTop--;
+    }
     numberOfColumns--;
 }
 
@@ -75,7 +89,7 @@ function outCell(){
 }
 
 function overCell(obj){
-    if(numberOfColumns != 1 && currentButtonTop != findPosition(obj)) { 
+    if(numberOfColumns != 1) { 
         outCell();
         currentButtonTop = findPosition(obj);
         var elem = topButton.firstChild.children[currentButtonTop];
@@ -91,7 +105,7 @@ function outRow(){
 }
 
 function overRow(obj){
-    if(numberOfRows != 1 && currentButtonLeft != findPosition(obj)) { 
+    if(numberOfRows != 1) { 
         outRow();
         currentButtonLeft = findPosition(obj);
         var elem = leftButton.getElementsByTagName('td')[currentButtonLeft];
