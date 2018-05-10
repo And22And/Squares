@@ -6,38 +6,20 @@
         <script src="squares.js"></script>
     </head>
     <body>
-        <div id='squares'>
-            <table onmouseleave='outTable()'>
-                <tr>
-                    <td></td>
-                    <td><table>
-                        <tbody class='topButton'><tr><td></td></tr></tbody>
-                    </table></td>
-                    <td></td>
-                </tr>    
-                <tr>
-                    <td><table>
-                        <tbody class='leftButton'><tr><td></td></tr></tbody>
-                    </table></td>
-                    <td><table>
-                        <tbody class='squaresTable'>
-                            <tr onmouseover='overRow(this)'>
-                                <td onmouseover='overCell(this)'></td>
-                            </tr>
-                        </tbody>
-                    </table></td>
-                    <td><table>
-                        <tbody class='rightButton'><tr><td class='button' onclick='addColumn()'>+</td></tr></tbody>
-                    </table></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td ><table>
-                        <tbody class='bottomButton'><tr><td class='button' onclick='addRow()'>+</td></tr></tbody>
-                    </table></td>
-                    <td></td>
-                </tr>
-            </table>
+        <div id='squares' onmouseleave='outTable()'>
+            <div class='topButton'><div class='button' onclick='removeColumn()'><p>-</p></div></div>
+            <div class='centerPart'>
+                <div class='leftButton'><div class='button' onclick='removeRow()'><p>-</p></div></div>
+                <table>
+                    <tbody class='squaresTable'>
+                        <tr onmouseover='overRow(this)'>
+                            <td onmouseover='overCell(this)'></td>
+                         </tr>
+                    </tbody>
+                </table>
+                <div class='rightButton'><div class='button' onclick='addColumn()'><p>+</p></div></div>
+            </div>
+            <div class='bottomButton'><div class='button' onclick='addRow()'><p>+</p></div></div>
         </div>
     </body>
 </html>

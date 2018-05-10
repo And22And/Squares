@@ -1,28 +1,37 @@
-#squares{
-
+#squares div{
+    margin:2px;
 }
 
-#squares td{
-}
-
-#squares .leftButton, #squares .bottomButton, #squares .rightButton, #squares .topButton{
-    display: block;
-    border: 2px solid transparent;
-    border-collapse: separate;
-    border-spacing: 2px;
-}
-
-#squares .leftButton td, #squares .bottomButton td, #squares .rightButton td, .topButton td{
+#squares .button{
+    display:inline-block; 
     max-height:50px;
     min-height:50px;
     max-width:50px;
     min-width:50px;
     width:50px;
     height:50px; 
+    text-align: center;
+    color:white;
 }
 
-#squaresTable{
-    display: block;
+#squares .leftButton, #squares .rightButton{
+    display:block; 
+    height:100%;
+    width:54px;
+    float:left;
+}
+
+#squares .button p{
+    display:inline-block;
+}
+
+#squares .bottomButton, #squares .topButton{
+    clear:both;
+}
+
+#squares table{
+    display:inline-block; 
+    float:left;
     border: 2px solid #1E90FF;
     border-collapse: separate;
     border-spacing: 2px; 
@@ -92,8 +101,6 @@
 	-o-animation: addButtonHoverOut 2s 1 normal;
 	animation: addButtonHoverOut 2s 1 normal;  
     background: #FFCC00;
-    text-align: center;
-    color:white;
 }
 
 #squares .rightButton .button:hover, #squares .bottomButton .button:hover{
@@ -155,8 +162,6 @@
 	-o-animation: removeButtonHoverOut 2s 1 normal;
 	animation: removeButtonHoverOut 2s 1 normal;  
     background: #800000;
-    text-align: center;
-    color:white;
 }
 
 #squares .leftButton .button:hover, #squares .topButton .button:hover{
