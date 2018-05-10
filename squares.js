@@ -112,10 +112,6 @@ var squaresModule = (function() {
         }
     }
     
-    var overTable = function(){
-    
-    }
-    
     var getOffsetLeft = function(elem){
         return elem.getBoundingClientRect().left - document.getElementById("squares").getBoundingClientRect().left;
     }
@@ -193,6 +189,7 @@ var squaresModule = (function() {
             
             var squares = document.createElement("div");
             squares.setAttribute("id", "squares");
+            squares.onmouseleave = outTable;
             squares.appendChild(topButtonCover);
             squares.appendChild(centerPart);
             squares.appendChild(bottomButtonCover);
