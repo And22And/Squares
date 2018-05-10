@@ -6,6 +6,7 @@ var squaresModule = (function() {
     var tdTemplate = function() {
         var td = document.createElement("td");
         td.onmouseover = function(){overCell(this)};
+        td.classList.add("squaresTd");
         return td;
     }
     
@@ -40,7 +41,7 @@ var squaresModule = (function() {
     }
     
     var getSquares = function(){
-        return document.getElementsByClassName("squaresTable")[0];
+        return document.getElementsByClassName("squaresTbody")[0];
     }
     
     var addRow = function(){
@@ -134,44 +135,55 @@ var squaresModule = (function() {
         createSquares : function(parent){
             var tp = document.createElement("p");
             tp.innerHTML = "-";
+            tp.classList.add("buttonSign");
             var topButton = document.createElement("div");
             topButton.classList.add("button");
+            topButton.classList.add("squareDiv");
             topButton.appendChild(tp);
             topButton.onclick = removeColumn;
             var topButtonCover = document.createElement("div");
+            topButtonCover.classList.add("squareDiv");
             topButtonCover.classList.add("topButton");
             topButtonCover.appendChild(topButton);    
             
             var lp = document.createElement("p");
             lp.innerHTML = "-";
+            lp.classList.add("buttonSign");
             var leftButton = document.createElement("div");
             leftButton.classList.add("button");
+            leftButton.classList.add("squareDiv");
             leftButton.appendChild(lp);
             leftButton.onclick = removeRow;
             var leftButtonCover = document.createElement("div");
+            leftButtonCover.classList.add("squareDiv");
             leftButtonCover.classList.add("leftButton");
             leftButtonCover.appendChild(leftButton);
             
             var tr = trTemplate();
             tr.appendChild(tdTemplate());
             var squaresTable = document.createElement("tbody");
-            squaresTable.classList.add("squaresTable"); 
+            squaresTable.classList.add("squaresTbody"); 
             squaresTable.appendChild(tr);
             var table = document.createElement("table");
             table.appendChild(squaresTable);
+            table.classList.add("squaresTable");
             
             
             var rp = document.createElement("p");
             rp.innerHTML = "+";
+            rp.classList.add("buttonSign");
             var rightButton = document.createElement("div");
+            rightButton.classList.add("squareDiv");
             rightButton.classList.add("button");
             rightButton.appendChild(rp);
             rightButton.onclick = addColumn;
             var rightButtonCover = document.createElement("div");
+            rightButtonCover.classList.add("squareDiv");
             rightButtonCover.classList.add("rightButton");
             rightButtonCover.appendChild(rightButton);     
             
             var centerPart = document.createElement("div");
+            centerPart.classList.add("squareDiv");
             centerPart.classList.add("centerPart");
             centerPart.appendChild(leftButtonCover);
             centerPart.appendChild(table);    
@@ -179,15 +191,19 @@ var squaresModule = (function() {
             
             var bp = document.createElement("p");
             bp.innerHTML = "+";
+            bp.classList.add("buttonSign");
             var bottomButton = document.createElement("div");
+            bottomButton.classList.add("squareDiv");
             bottomButton.classList.add("button");
             bottomButton.appendChild(bp);
             bottomButton.onclick = addRow;
             var bottomButtonCover = document.createElement("div");
+            bottomButtonCover.classList.add("squareDiv");
             bottomButtonCover.classList.add("bottomButton");
             bottomButtonCover.appendChild(bottomButton);  
             
             var squares = document.createElement("div");
+            squares.classList.add("squareDiv");
             squares.setAttribute("id", "squares");
             squares.onmouseleave = outTable;
             squares.appendChild(topButtonCover);

@@ -1,8 +1,8 @@
-#squares {
+#squares{
     display:inline-block;
 }
 
-#squares div{
+#squares .squareDiv{
     margin:1px;
 }
 
@@ -21,11 +21,11 @@
 #squares .leftButton, #squares .rightButton{
     display:block; 
     height:100%;
-    width:54px;
+    width:52px;
     float:left;
 }
 
-#squares .button p{
+#squares .button .buttonSign{
     display:inline-block;
 }
 
@@ -33,7 +33,7 @@
     clear:both;
 }
 
-#squares table{
+#squares .squaresTable{
     display:inline-block; 
     float:left;
     border: 2px solid #1E90FF;
@@ -42,7 +42,7 @@
     cursor: url("BlackCursor.png"), auto; 
 }
 
-#squares .squaresTable td{
+#squares .squaresTable .squaresTd{
     max-height:50px;
     min-height:50px;
     max-width:50px;
