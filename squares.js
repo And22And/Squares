@@ -1,8 +1,17 @@
 var currentButtonLeft = 0;
 var currentButtonTop = 0;
-var tdTemplate = "<td onmouseover='overCell(this)'></td>";
-var trTemplate = "<tr onmouseover='overRow(this)'>";
-var tdRemoveTemplate = "<td></td>";
+
+function tdTemplate() {
+    var td = document.createElement("td");
+    td.onmouseover = function(){overCell(this)};
+    return td;
+}
+
+function trTemplate() { 
+    var tr = document.createElement("tr");
+    tr.onmouseover = function(){overRow(this)};
+    return tr;
+}
 
 function numberOfRows(){
     return getSquares().children.length;
@@ -34,12 +43,11 @@ function getSquares(){
 
 function addRow(){
     var i;
-    var row = trTemplate;
+    var row = trTemplate();
     for(i = 0; i < numberOfColumns(); i++) {
-        row += tdTemplate;
+        row.appendChild(tdTemplate());
     }
-    row += "</tr>"
-    getSquares().insertAdjacentHTML("beforeend", row);
+    getSquares().appendChild(row);
 }
 
 function removeRow(){
@@ -56,7 +64,7 @@ function removeRow(){
 function addColumn(){
     var rows = Array.from(getSquares().children);
     rows.forEach(function(row) {
-        row.insertAdjacentHTML("beforeend", tdTemplate);
+        row.appendChild(tdTemplate());
     });   
 }
 
@@ -86,24 +94,12 @@ function removeButton(elem){
     elem.style.visibility = "hidden";
 }
 
-function outCell(){  
-    if(currentButtonTop < numberOfColumns()) {
-        removeButton(topButton());
-    }
-}
-
 function overCell(obj){
     if(numberOfColumns() != 1) { 
         currentButtonTop = findPosition(obj);
         addButton(topButton());
         topButton().style.marginLeft = getOffsetLeft((getSquares().children[currentButtonLeft].children[currentButtonTop])) + "px";
     }
-}
-
-function outRow(){
-    if(currentButtonLeft < numberOfRows()) {        
-        removeButton(leftButton());
-    }    
 }
 
 function overRow(obj){
@@ -123,8 +119,8 @@ function getOffsetTop(elem){
 }
 
 function outTable(){
-    outCell();
-    outRow();
+    removeButton(topButton());
+    removeButton(leftButton());
 }
 
 function startPlacing(){

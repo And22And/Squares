@@ -1,3 +1,7 @@
+#squares {
+    display:inline-block;
+}
+
 #squares div{
     margin:2px;
 }
