@@ -5,14 +5,12 @@ var squaresModule = (function() {
     
     var tdTemplate = function() {
         var td = document.createElement("td");
-        td.onmouseover = function(){overCell(this)};
         td.classList.add("squaresTd");
         return td;
     }
     
     var trTemplate = function() { 
         var tr = document.createElement("tr");
-        tr.onmouseover = function(){overRow(this)};
         return tr;
     }
     
@@ -97,17 +95,32 @@ var squaresModule = (function() {
         elem.style.visibility = "hidden";
     }
     
-    var overCell = function(obj){
-        if(numberOfColumns() != 1) { 
-            currentButtonTop = findPosition(obj);
-            addButton(topButton());
-            topButton().style.marginLeft = getOffsetLeft((getSquares().children[currentButtonLeft].children[currentButtonTop])) + "px";
+    var overTable = function(elem) {
+        var rows = elem.children[0].children;
+        var cells = rows[0].children;
+        var x = event.clientX;
+        var y = event.clientY;
+        var row = rows.length - 1;
+        var cell = cells.length - 1;
+        for(var i = 0; i < rows.length; i++) {
+            if(y < rows[i].getBoundingClientRect().top) {
+                row = i == 0 ? 0 : i - 1;
+                break;
+            }
         }
-    }
-    
-    var overRow = function(obj){
+        for(var i = 0; i < cells.length; i++) {
+            if(x < cells[i].getBoundingClientRect().left) {
+                cell = i == 0 ? 0 : i - 1;
+                break;
+            }
+        }
+        if(numberOfColumns() != 1) { 
+            currentButtonTop = cell;
+            addButton(topButton());
+            topButton().style.marginLeft = getOffsetLeft((getSquares().children[0].children[currentButtonTop])) + "px";
+        }
         if(numberOfRows() != 1) { 
-            currentButtonLeft = findPosition(obj);
+            currentButtonLeft = row;
             addButton(leftButton());
             leftButton().style.marginTop = getOffsetTop((getSquares().children[currentButtonLeft])) + "px";
         }
@@ -167,7 +180,7 @@ var squaresModule = (function() {
             var table = document.createElement("table");
             table.appendChild(squaresTable);
             table.classList.add("squaresTable");
-            
+            table.onmousemove = function(){ overTable(this);};
             
             var rp = document.createElement("p");
             rp.innerHTML = "+";
