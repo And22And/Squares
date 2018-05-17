@@ -56,124 +56,23 @@
     cursor: url("HandTrans.png"), auto; 
 }
 
-@-webkit-keyframes addButtonHover {
-	from { background-color: #FFCC00; }
-	to { background-color: #FFCC33; }
-}
-@-moz-keyframes addButtonHover {
-	from { background-color: #FFCC00; }
-	to { background-color: #FFCC66; }
-}
-@-ms-keyframes addButtonHover {
-	from { background-color: #FFCC00; }
-	to { background-color: #FFCC66; }
-}
-@-o-keyframes addButtonHover {
-	from { background-color: #FFCC00; }
-	to { background-color: #FFCC66; }
-}
-@keyframes addButtonHover{
-	from { background-color: #FFCC00; }
-	to { background-color: #FFCC66; }
-}
-
-@-webkit-keyframes addButtonHoverOut {
-	from { background-color: #FFCC66; }
-	to { background-color: #FFCC00; }
-}
-@-moz-keyframes addButtonHoverOut {
-	from { background-color: #FFCC66; }
-	to { background-color: #FFCC00; }
-}
-@-ms-keyframes addButtonHoverOut {
-	from { background-color: #FFCC66; }
-	to { background-color: #FFCC00; }
-}
-@-o-keyframes addButtonHoverOut {
-	from { background-color: #FFCC66; }
-	to { background-color: #FFCC00; }
-}
-@keyframes addButtonHoverOut {
-	from { background-color: #FFCC66; }
-	to { background-color: #FFCC00; }
-}
-
 #squares .rightButton .button, #squares .bottomButton .button{
-    -webkit-animation: addButtonHoverOut 2s 1 normal;
-	-moz-animation: addButtonHoverOut 2s 1 normal;
-	-ms-animation: addButtonHoverOut 2s 1 normal;
-	-o-animation: addButtonHoverOut 2s 1 normal;
-	animation: addButtonHoverOut 2s 1 normal;  
+    transition: background-color 2s; 
     background: #FFCC00;
 }
 
 #squares .rightButton .button:hover, #squares .bottomButton .button:hover{
-    -webkit-animation: addButtonHover 2s 1 normal;
-	-moz-animation: addButtonHover 2s 1 normal;
-	-ms-animation: addButtonHover 2s 1 normal;
-	-o-animation: addButtonHover 2s 1 normal;
-	animation: addButtonHover 2s 1 normal;
+    transition: background-color 2s;
     background-color: #FFCC66;  
 }
 
-@-webkit-keyframes addButtonHover {
-	from { background-color: #800000; }
-	to { background-color: #CD5C5C; }
-}
-@-moz-keyframes removeButtonHover {
-	from { background-color: #800000; }
-	to { background-color: #CD5C5C; }
-}
-@-ms-keyframes removeButtonHover {
-	from { background-color: #800000; }
-	to { background-color: #CD5C5C; }
-}
-@-o-keyframes removeButtonHover {
-	from { background-color: #800000; }
-	to { background-color: #CD5C5C; }
-}
-
-@keyframes removeButtonHover{
-	from { background-color: #800000; }
-	to { background-color: #CD5C5C; }
-}
-
-@-webkit-keyframes removeButtonHoverOut {
-	from { background-color: #CD5C5C; }
-	to { background-color: #800000; }
-}
-@-moz-keyframes removeButtonHoverOut {
-	from { background-color: #CD5C5C; }
-	to { background-color: #800000; }
-}
-@-ms-keyframes removeButtonHoverOut {
-	from { background-color: #CD5C5C; }
-	to { background-color: #800000; }
-}
-@-o-keyframes removeButtonHoverOut {
-	from { background-color: #CD5C5C; }
-	to { background-color: #800000; }
-}
-@keyframes removeButtonHoverOut {
-	from { background-color: #CD5C5C; }
-	to { background-color: #800000; }
-}
-
 #squares .leftButton .button, #squares .topButton .button{
-    -webkit-animation: removeButtonHoverOut 2s 1 normal;
-	-moz-animation: removeButtonHoverOut 2s 1 normal;
-	-ms-animation: removeButtonHoverOut 2s 1 normal;
-	-o-animation: removeButtonHoverOut 2s 1 normal;
-	animation: removeButtonHoverOut 2s 1 normal;  
+    transition: background-color 2s;
     background: #800000;
 }
 
 #squares .leftButton .button:hover, #squares .topButton .button:hover{
-    -webkit-animation: removeButtonHover 2s 1 normal;
-	-moz-animation: removeButtonHover 2s 1 normal;
-	-ms-animation: removeButtonHover 2s 1 normal;
-	-o-animation: removeButtonHover 2s 1 normal;
-	animation: removeButtonHover 2s 1 normal;
+    transition: background-color 2s;
     background-color: #CD5C5C;  
 }
 
