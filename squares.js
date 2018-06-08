@@ -173,6 +173,15 @@ var squaresModule = (function() {
         function moveAt(event) {
             wrapper().style.left = event.pageX - shiftX + 'px';
             wrapper().style.top = event.pageY - shiftY + 'px';
+            if(event.pageX - shiftX < 0) {
+                 wrapper().style.left = '0px';
+            }
+            if(event.pageY - shiftY < 0) {
+                 wrapper().style.top = '0px';
+            }
+            if(event.pageX - shiftX > document.body.offsetWidth - rightButton().offsetWidth * 2 - movable().offsetWidth){
+                wrapper().style.left =  document.body.offsetWidth - rightButton().offsetWidth * 2 - movable().offsetWidth + 'px';
+            }
         }
 
         document.onmousemove = function(event) {
