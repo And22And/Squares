@@ -6,8 +6,9 @@ var squaresModule = (function() {
     var createTemplate = function() {
         var temp = document.createElement("div");
         temp.id = 'squares';
-        temp.innerHTML = "<div class='topButton squareDiv button'><p class='buttonSign'>-</p></div>\
-            <div class='centerPart'>\
+        temp.innerHTML = "\
+                <div class='movable'>Move</div>\
+                <div class='topButton squareDiv button'><p class='buttonSign'>-</p></div>\
                 <div class='leftButton squareDiv button'><p class='buttonSign'>-</p></div>\
                 <table class='squaresTable'>\
                     <tbody class='squaresTbody'>\
@@ -17,7 +18,6 @@ var squaresModule = (function() {
                     </tbody>\
                 </table>\
                 <div class='rightButton squareDiv button'><p class='buttonSign'>+</p></div>\
-            </div>\
             <div class='bottomButton squareDiv button'><p class='buttonSign'>+</p></div>";
         return temp;
     };
@@ -55,6 +55,14 @@ var squaresModule = (function() {
     
     var bottomButton = function(){
         return document.getElementsByClassName("bottomButton")[0];
+    }
+    
+    var wrapper = function(){
+        return document.getElementById("squares");
+    }
+    
+    var movable = function(){
+        return document.getElementsByClassName("movable")[0];
     }
     
     var getSquares = function(){
@@ -155,6 +163,28 @@ var squaresModule = (function() {
         bottomButton().style.marginLeft = getOffsetLeft((getSquares().children[0].children[0])) + "px";
     }
     
+    var moveSquares = function(event){
+        var shiftX = event.pageX - wrapper().offsetLeft;
+        var shiftY = event.pageY - wrapper().offsetTop;
+
+        moveAt(event);
+        wrapper().style.zIndex = 10;
+
+        function moveAt(event) {
+            wrapper().style.left = event.pageX - shiftX + 'px';
+            wrapper().style.top = event.pageY - shiftY + 'px';
+        }
+
+        document.onmousemove = function(event) {
+            moveAt(event);
+        };
+
+        document.onmouseup = function() {
+            document.onmousemove = null;
+            document.onmouseup = null;
+        };
+    }
+    
     return {
         createSquares : function(parent){
             var template = createTemplate();            
@@ -165,7 +195,10 @@ var squaresModule = (function() {
             rightButton().onclick = addColumn;
             bottomButton().onclick = addRow;
             getSquares().parentElement.onmousemove = function(){ overTable(this);};
-            document.getElementById("squares").onmouseleave = outTable;
+            wrapper().ondragstart = function() { return false; };
+            wrapper().onmouseleave = outTable;
+            
+            movable().onmousedown = moveSquares;
             
             addRow();
             addColumn();

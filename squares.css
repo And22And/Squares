@@ -1,5 +1,6 @@
 #squares{
     display:inline-block;
+    position:absolute;
 }
 
 #squares .squareDiv{
@@ -28,6 +29,7 @@
 
 #squares .bottomButton, #squares .topButton{
     clear:both;
+    display:block;
 }
 
 #squares .squaresTable{
@@ -74,4 +76,10 @@
     background-color: #CD5C5C;  
 }
 
-
+#squares .movable{
+    width: 100%;
+    background: #C0C0C0;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+}
