@@ -6,9 +6,9 @@ var squaresModule = (function() {
     var createTemplate = function() {
         var temp = document.createElement("div");
         temp.id = 'squares';
-        temp.innerHTML = "<div class='topButton'><div class='squareDiv button'><p class='buttonSign'>-</p></div></div>\
+        temp.innerHTML = "<div class='topButton squareDiv button'><p class='buttonSign'>-</p></div>\
             <div class='centerPart'>\
-                <div class='leftButton squareDiv'><div class='squareDiv button'><p class='buttonSign'>-</p></div></div>\
+                <div class='leftButton squareDiv button'><p class='buttonSign'>-</p></div>\
                 <table class='squaresTable'>\
                     <tbody class='squaresTbody'>\
                         <tr>\
@@ -16,9 +16,9 @@ var squaresModule = (function() {
                         </tr>\
                     </tbody>\
                 </table>\
-                <div class='rightButton squareDiv'><div class='squareDiv button'><p class='buttonSign'>+</p></div></div>\
+                <div class='rightButton squareDiv button'><p class='buttonSign'>+</p></div>\
             </div>\
-            <div class='bottomButton'><div class='squareDiv button'><p class='buttonSign'>+</p></div></div>";
+            <div class='bottomButton squareDiv button'><p class='buttonSign'>+</p></div>";
         return temp;
     };
     
@@ -42,19 +42,19 @@ var squaresModule = (function() {
     }
     
     var leftButton = function(){
-        return document.getElementsByClassName("leftButton")[0].children[0];
+        return document.getElementsByClassName("leftButton")[0]
     }
     
     var rightButton = function(){
-        return document.getElementsByClassName("rightButton")[0].children[0];
+        return document.getElementsByClassName("rightButton")[0];
     }
     
     var topButton = function(){
-        return document.getElementsByClassName("topButton")[0].children[0];
+        return document.getElementsByClassName("topButton")[0];
     }
     
     var bottomButton = function(){
-        return document.getElementsByClassName("bottomButton")[0].children[0];
+        return document.getElementsByClassName("bottomButton")[0];
     }
     
     var getSquares = function(){
@@ -138,7 +138,11 @@ var squaresModule = (function() {
     }
     
     var getOffsetTop = function(elem){
-        return elem.offsetTop;
+        var table = elem.parentElement
+        while(table.tagName != 'TABLE'){
+            table = table.parentElement
+        }
+        return elem.offsetTop + parseInt(window.getComputedStyle(table).borderLeft, 10);
     }
     
     var outTable = function(){

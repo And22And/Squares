@@ -19,9 +19,6 @@
 }
 
 #squares .leftButton, #squares .rightButton{
-    display:block; 
-    height:100%;
-    width:52px;
     float:left;
 }
 
@@ -54,24 +51,25 @@
 
 #squares .button { 
     cursor: url("HandTrans.png"), auto; 
+    padding:1px;
 }
 
-#squares .rightButton .button, #squares .bottomButton .button{
+#squares .rightButton, #squares .bottomButton{
     transition: background-color 2s; 
     background: #FFCC00;
 }
 
-#squares .rightButton .button:hover, #squares .bottomButton .button:hover{
+#squares .rightButton:hover, #squares .bottomButton:hover{
     transition: background-color 2s;
     background-color: #FFCC66;  
 }
 
-#squares .leftButton .button, #squares .topButton .button{
+#squares .leftButton, #squares .topButton{
     transition: background-color 2s;
     background: #800000;
 }
 
-#squares .leftButton .button:hover, #squares .topButton .button:hover{
+#squares .leftButton:hover, #squares .topButton:hover{
     transition: background-color 2s;
     background-color: #CD5C5C;  
 }
