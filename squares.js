@@ -130,7 +130,11 @@ var squaresModule = (function() {
     }
     
     var getOffsetLeft = function(elem){
-        return elem.getBoundingClientRect().left - document.getElementById("squares").getBoundingClientRect().left;
+        var table = elem.parentElement
+        while(table.tagName != 'TABLE'){
+            table = table.parentElement
+        }
+        return elem.offsetLeft + elem.offsetWidth + parseInt(window.getComputedStyle(elem).borderSpacing, 10) + parseInt(window.getComputedStyle(table).borderLeft, 10);
     }
     
     var getOffsetTop = function(elem){
