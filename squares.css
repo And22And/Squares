@@ -77,9 +77,4 @@
 }
 
 #squares .movable{
-    width: 100%;
-    background: #C0C0C0;
-    text-align: center;
-    cursor: pointer;
-    user-select: none;
 }

@@ -7,10 +7,9 @@ var squaresModule = (function() {
         var temp = document.createElement("div");
         temp.id = 'squares';
         temp.innerHTML = "\
-                <div class='movable'>Move</div>\
                 <div class='topButton squareDiv button'><p class='buttonSign'>-</p></div>\
                 <div class='leftButton squareDiv button'><p class='buttonSign'>-</p></div>\
-                <table class='squaresTable'>\
+                <table class='squaresTable movable'>\
                     <tbody class='squaresTbody'>\
                         <tr>\
                             <td class='squaresTd'></td>\
